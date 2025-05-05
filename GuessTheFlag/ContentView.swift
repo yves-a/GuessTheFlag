@@ -18,6 +18,16 @@ struct ContentView: View {
     
     @State private var gameOver = false
     @State private var questionsAsked = 0
+    
+    struct FlagImage: View {
+        var image: String
+        
+        var body: some View {
+            Image(image)
+                .clipShape(Capsule())
+                .shadow(radius: 5)
+        }
+    }
 
     var body: some View {
         ZStack {
@@ -48,9 +58,7 @@ struct ContentView: View {
                         Button {
                             flagTapped(number)
                         } label: {
-                            Image(countries[number])
-                                .clipShape(Capsule())
-                                .shadow(radius: 5)
+                            FlagImage(image: countries[number])
                         }
                     }
                 }
